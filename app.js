@@ -133,7 +133,8 @@ function getSymbolTable (modules) {
         moduleLength = module.programInstructions.length;
 
     for (var definition in definitions)
-      symbolTable[definition] = definitions[definition] + offset;
+      !symbolTable[definition] ? 
+        symbolTable[definition] = definitions[definition] + offset : console.log("Error: Cannot define a symbol twice.");
     
     offset += moduleLength;
   
@@ -155,9 +156,21 @@ function getMemoryMap (ms, symbolTable) {
       indexOfNextUse = ms[i].programInstructions[indexOfUse].address;
 
       var useValue = symbolTable[use];
+      if (!symbolTable[use]) {
+        useValue = 0;
+        console.log("Error: Undefined Variable '" + use + "'' was used.")
+      }
+
+      
       ms[i].programInstructions[indexOfUse].address = useValue;
       
       while (indexOfNextUse != 777) {
+        if (ms[i].programInstructions[indexOfUse].type != "E") {
+          console.log("Error: Address on a use list is not of type E");
+          ms[i].programInstructions[indexOfUse].type = "E";
+        }
+
+
         var tmp = ms[i].programInstructions[indexOfNextUse].address;
         ms[i].programInstructions[indexOfNextUse].address = useValue;
         indexOfNextUse = tmp;
