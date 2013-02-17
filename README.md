@@ -1,46 +1,49 @@
-- (I) an immediate operand, which is unchanged;
-- (A) an absolute address, which is unchanged;
-- (R) a relative address, which is relocated;
-- (E) an external address, which is resolved
-  - look at the last 3 digits of the number that follows E and it will tell you where else it is used.
-  - follow until you hit 777
+############################################################################
 
+  David Byrd
+  
+  Lab #1 Linker (Node.js version)
+  Operating Systems | NYU
+  2.17.13
 
-All absolute addresses need to be put into the memory map & are not mutable
+############################################################################
 
+1. Compilation command
+  
+  This requires node.js & npm to be installed and will not work on i5.
+  
+      $ npm install linker -g         // downloads linker & adds to path
+    
+      $ which linker                  // just to check that its in your path
+  
+2. Running Program
 
-companies will be created
-a community will be created with pizza and trophies
-we will be a gatekeeper
+  Run the following command from anywhere on your computer:
 
+      $ linker path/to/file.txt
 
-1. Go through first lines of modules (every 3 lines) and create symbol table
-2. Create the memory map
+3. Directory Structure
 
+  inputs/
+    - contains all of the example inputs
 
-### error's I'm not handling
-- (√) If a symbol is multiply deﬁned, print an error message and use the value given in the ﬁrst deﬁnition.
-- (√) If a symbol is used but not deﬁned, print an error message and use the value zero.
-- (√) If a symbol is deﬁned but not used, print a warning message and continue.
-- (√) If an address appearing in a deﬁnition exceeds the size of the module, print an error message and treat the address
-given as 0 (relative).
-- (√) If an address appearing in a use list exceeds the size of the module, print an error message and treat the address
-as the sentinel ending the list.
-- (√) If an address on a use list is not type E, print an error message and treat the address as type E.
-- If a type E address is not on a use list, print an error message and treat the address as type I.
+  lib/
+    - contains the reader that turns input files into an AST
+    - has the linker code which includes methods to create the symbol table and memory map given the AST
+    
+  app.js
+    - This is the executable that is added to your path when installed
 
+4. Description
 
-count which module you're in
+  The executable passes the file name to the reader which parses it and returns an abstract syntax tree.
 
-count which of the 3 parts of a module you're in
+  The AST is then passed to linker#getSymbolTable which returns the Symbol Table. The Symbol Table is then printed.
 
-count how long that part is
+  linker#getMemoryMap takes the original ast and the symbol table as arguments and then returns the memory map. The Memory Map is then printed. This method also handles errors that are found in the AST and prints out Error and Warning statements.
+  
+5. Dependencies
 
-
-
-
-### TODO
-- Fix issue's with line 69 in linker.js
-- Add support for last error type
-- Add to npm
-- Translate to Python
+    Node.js >= 4.4
+    NPM >= 1.1x
+    A unix based operating system
