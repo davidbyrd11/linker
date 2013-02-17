@@ -19,12 +19,19 @@ we will be a gatekeeper
 
 
 ### error's I'm not handling
-- If a symbol is multiply deﬁned, print an error message and use the value given in the ﬁrst deﬁnition.
-- If a symbol is used but not deﬁned, print an error message and use the value zero.
-- If a symbol is deﬁned but not used, print a warning message and continue.
-- If an address appearing in a deﬁnition exceeds the size of the module, print an error message and treat the address
+- (√) If a symbol is multiply deﬁned, print an error message and use the value given in the ﬁrst deﬁnition.
+- (√) If a symbol is used but not deﬁned, print an error message and use the value zero.
+- (√) If a symbol is deﬁned but not used, print a warning message and continue.
+- (√) If an address appearing in a deﬁnition exceeds the size of the module, print an error message and treat the address
 given as 0 (relative).
-- If an address appearing in a use list exceeds the size of the module, print an error message and treat the address
+- (√) If an address appearing in a use list exceeds the size of the module, print an error message and treat the address
 as the sentinel ending the list.
-- If an address on a use list is not type E, print an error message and treat the address as type E.
+- (√) If an address on a use list is not type E, print an error message and treat the address as type E.
 - If a type E address is not on a use list, print an error message and treat the address as type I.
+
+
+count which module you're in
+
+count which of the 3 parts of a module you're in
+
+count how long that part is
