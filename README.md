@@ -35,3 +35,12 @@ count which module you're in
 count which of the 3 parts of a module you're in
 
 count how long that part is
+
+
+
+
+### TODO
+- Fix issue's with line 69 in linker.js
+- Add support for last error type
+- Add to npm
+- Translate to Python
