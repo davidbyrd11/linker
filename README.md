@@ -2,7 +2,7 @@
 
   David Byrd
   
-  Lab #1 Linker (Node.js version)
+  Lab #1 Linker (Python version)
   Operating Systems | NYU
   2.17.13
 
@@ -10,17 +10,13 @@
 
 1. Compilation command
   
-  This requires node.js & npm to be installed and will not work on i5.
-  
-      $ npm install linker -g         // downloads linker & adds to path
-    
-      $ which linker                  // just to check that its in your path
+  Python is an interpreted language & does not need to be compiled.
   
 2. Running Program
 
   Run the following command from anywhere on your computer:
 
-      $ linker path/to/file.txt
+      $ python path/to/app.py path/to/input.txt
 
 3. Directory Structure
 
