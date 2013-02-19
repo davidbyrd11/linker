@@ -1,7 +1,7 @@
 {
   "name": "linker",
   "description": "A solution to NYU's linker problem in Operating Systems class.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "David Byrd <david@byrdhou.se>",
   "keywords": ["linker","nyu"],
   "bin": { "linker" : "./app.js" },
