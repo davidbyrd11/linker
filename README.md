@@ -40,6 +40,5 @@
   
 5. Dependencies
 
-    Node.js >= 4.4
-    NPM >= 1.1x
+    Python >= 2.5
     A unix based operating system
