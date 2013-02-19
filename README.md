@@ -27,7 +27,7 @@
     - contains the reader that turns input files into an AST
     - has the linker code which includes methods to create the symbol table and memory map given the AST
     
-  app.js
+  app.py
     - This is the executable that is added to your path when installed
 
 4. Description
