@@ -20,7 +20,7 @@ def getSymbolTable (modules):
       # make sure the definition is in the bounds of the module.
       if definitions[definition] > (len(module["programInstructions"]) - 1):
         definitions[definition] = 0
-        print("Error: Definition of " + definition + " exceeds the size of module " + str(i))
+        print("Error: Definition of " + definition + " exceeds the size of module " + str(i+1))
 
       # make sure the variable has not already been defined.
       if not symbolTable.has_key(definition):
